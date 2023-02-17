@@ -93,17 +93,31 @@
 #         cluster: ${{ env.ECS_CLUSTER }}
 #         wait-for-service-stability: true
 
+# name: Github action ofr
+# on:
+#   push:
+#     branches: [main]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Print node version
+#         run: node --version
+#       - name: Print NPM version
+#         run: npm --version
+#       - name: Print raj
+#         run: raj
 
-name: Github action ofr
-on:
-  push:
-    branches: [main]
+name: Print Node Version
+on: push
 jobs:
-  build:
+  Print-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Print node version
-        run: node --version
-      - name: Print NPM version
-        run: npm --version
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+          -name: Print Node Version
+          run: node -v
